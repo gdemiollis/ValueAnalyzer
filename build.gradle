@@ -1,0 +1,32 @@
+group 'fr.exem'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+bintray {
+    user = 'gdemiollis'
+    key = '4426ca8b37be6625f278189666565a9372ee4994'
+    pkg {
+        repo = 'mave'
+        name = 'ValueAnalyzer'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
+    }
+}
+
+allprojects {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
